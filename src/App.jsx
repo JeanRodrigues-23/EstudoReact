@@ -6,8 +6,9 @@ import { v4 } from "uuid";
 import Tittle from "./components/Tittle";
 
 function App() {
-  const [tasks, setTasks] =
-    useState(JSON.parse(localStorage.getItem("tasks"))) || [];
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || [],
+  );
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -61,9 +62,7 @@ function App() {
   return (
     <div className="min-w-screen min-h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-500px space-y-4">
-        <Tittle>
-          Gerenciador de Task
-        </Tittle>
+        <Tittle>Gerenciador de Task</Tittle>
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
