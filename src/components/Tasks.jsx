@@ -14,7 +14,7 @@ function Tasks(props) {
 
   return (
     <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
-      {props.tasks.length !== 0 ? props.tasks.map((task) => (
+      {props.tasks.length > 0 ? props.tasks.map((task) => (
         <li key={task.id} className="flex gap-2">
           <button
             onClick={() => props.onTaskClick(task.id)}
@@ -31,9 +31,9 @@ function Tasks(props) {
           </Button>
         </li>
       )) : (
-        <div className="flex justify-center">
+        <li className="flex justify-center">
           <p className="text-slate-500">Lista vazia</p>
-        </div>
+        </li>
       )}
     </ul>
   );
